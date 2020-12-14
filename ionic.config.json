@@ -1,0 +1,7 @@
+{
+  "name": "Gelatos-Back-Office",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
