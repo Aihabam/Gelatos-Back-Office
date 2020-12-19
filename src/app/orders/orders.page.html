@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p *ngIf="loadingOrders" style="padding: 10px;">{{loadingOrders}}</p>
+  <ng-container *ngFor="let item of (allOrders | async)?.reverse();let i = index;">
+    <div class="past-order">
+      <p style="font-weight: bold;">Total Items</p>
+      <p>{{item.totalItems}}</p>
+      <p style="font-weight: bold;">Total Amount</p>
+      <p>{{item.totalAmount+' LYD'}}</p>
+      <p style="font-weight: bold;">Ordered</p>
+      <p>{{item.createdOn | timeAgo}}</p>
+      <p style="font-weight: bold;">Phone Number</p>
+      <p>{{item.phoneNumber}}</p>
+      <p style="font-weight: bold;">Shipping Address</p>
+      <p>{{item.shippingAddress}}</p>
+      <hr>
+      <p style="font-weight: bold;">Items</p>
+      <div class="itemsOfOrder">
+        <div *ngFor="let item of getPastOrderItems(i)">
+          <p>{{item.name}}</p>
+          <p>{{item.price+' LYD'}}</p>
+        </div>
+      </div>
+
+    </div><br>
+  </ng-container>
+</ion-content>
