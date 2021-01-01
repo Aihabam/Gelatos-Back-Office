@@ -8,7 +8,7 @@ import { WareHouseService } from '../Api/ware-house.service';
 })
 export class WareHousePage implements OnInit {
 
-  storage = [];
+  storage = {};
   constructor(private wareHouse:WareHouseService) { }
 
   ngOnInit() {
@@ -17,7 +17,7 @@ export class WareHousePage implements OnInit {
   bindStorageTemp(){
  this.wareHouse.getStorageStatus()
  .subscribe((s) => {
-   this.storage = s['01']
+   this.storage = s;
    
  })
 
